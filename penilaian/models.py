@@ -1,3 +1,5 @@
+import datetime
+
 from django.db import models
 from django.utils import timezone
 from master.models import Siswa, Mengajar
@@ -68,7 +70,7 @@ class NilaiSikap(models.Model):
 
 
 class Presensi(models.Model):
-    hari = models.DateField(default=timezone.localdate(timezone=timezone.get_default_timezone()))
+    hari = models.DateField(default=datetime.date.today())
     jam = models.CharField(max_length=50, choices=jam_mengajar)
     siswa = models.ForeignKey(Siswa, on_delete=models.CASCADE)
     presensi = models.CharField(max_length=20, choices=pilihan_presensi, default=pilihan_presensi[1][0])
