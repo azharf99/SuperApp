@@ -33,7 +33,7 @@ class NilaiUpdateView(LoginRequiredMixin, UpdateView):
 class NilaiDeleteView(LoginRequiredMixin, DeleteView):
     login_url = "/login/"
     model = Nilai
-    success_url = reverse_lazy("nilai-list")
+    success_url = reverse_lazy("nilai-index")
 
 
 """

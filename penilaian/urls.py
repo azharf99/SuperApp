@@ -1,9 +1,15 @@
 from django.urls import path
-from master.views import *
+
+from penilaian.views import NilaiListView, NilaiAddView, NilaiDetailView, NilaiUpdateView, NilaiDeleteView, \
+    NilaiSikapListView, NilaiSikapAddView, NilaiSikapDetailView, NilaiSikapUpdateView, NilaiSikapDeleteView, \
+    PresensiListView, PresensiAddView, PresensiDetailView, PresensiUpdateView, PresensiDeleteView, PrestasiListView, \
+    PrestasiAddView, PrestasiDetailView, PrestasiUpdateView, PrestasiDeleteView, EkstrakurikulerListView, \
+    EkstrakurikulerAddView, EkstrakurikulerDetailView, EkstrakurikulerUpdateView, EkstrakurikulerDeleteView, \
+    CatatanWalikelasListView, CatatanWalikelasAddView, CatatanWalikelasDetailView, CatatanWalikelasUpdateView, \
+    CatatanWalikelasDeleteView
 
 urlpatterns = [
-    path('', index, name='app-index'),
-    path('nilai-list', NilaiListView.as_view(), name='nilai-list'),
+    path('', NilaiListView.as_view(), name='nilai-index'),
     path('nilai/add', NilaiAddView.as_view(), name='nilai-add'),
     path('nilai/<str:pk>', NilaiDetailView.as_view(), name='nilai-detail'),
     path('nilai/update/<str:pk>', NilaiUpdateView.as_view(), name='nilai-update'),

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from master.models import Siswa, Mengajar
 
 # Create your models here.
 jam_mengajar = (
@@ -40,8 +41,8 @@ pilihan_presensi = (
 
 class Nilai(models.Model):
     nama_nilai = models.CharField(max_length=10)
-    siswa = models.ForeignKey('Siswa', on_delete=models.CASCADE)
-    pelajaran = models.ForeignKey('Mengajar', on_delete=models.CASCADE)
+    siswa = models.ForeignKey(Siswa, on_delete=models.CASCADE)
+    pelajaran = models.ForeignKey(Mengajar, on_delete=models.CASCADE)
     nilai = models.PositiveSmallIntegerField(default=0)
     kategori_nilai = models.CharField(max_length=20, choices=kategori_nilai)
     keterangan = models.CharField(max_length=20, blank=True, null=True)
@@ -55,7 +56,7 @@ class Nilai(models.Model):
 
 
 class NilaiSikap(models.Model):
-    siswa = models.ForeignKey('Siswa', on_delete=models.CASCADE)
+    siswa = models.ForeignKey(Siswa, on_delete=models.CASCADE)
     nilai_spiritual = models.CharField(max_length=1, default=nilai_sikap[1][0], choices=nilai_sikap)
     nilai_sosial = models.CharField(max_length=1, default=nilai_sikap[1][0], choices=nilai_sikap)
     keterangan = models.CharField(max_length=20, blank=True, null=True)
@@ -69,7 +70,7 @@ class NilaiSikap(models.Model):
 class Presensi(models.Model):
     hari = models.DateField(default=timezone.localdate(timezone=timezone.get_default_timezone()))
     jam = models.CharField(max_length=50, choices=jam_mengajar)
-    siswa = models.ForeignKey('Siswa', on_delete=models.CASCADE)
+    siswa = models.ForeignKey(Siswa, on_delete=models.CASCADE)
     presensi = models.CharField(max_length=20, choices=pilihan_presensi, default=pilihan_presensi[1][0])
     keterangan = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -79,7 +80,7 @@ class Presensi(models.Model):
         return f"{self.hari} | {self.jam} | {self.siswa} | {self.presensi}"
 
 class Prestasi(models.Model):
-    siswa = models.ForeignKey('Siswa', on_delete=models.CASCADE)
+    siswa = models.ForeignKey(Siswa, on_delete=models.CASCADE)
     jenis_prestasi = models.CharField(max_length=100, blank=True, null=True)
     keterangan = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -90,7 +91,7 @@ class Prestasi(models.Model):
 
 
 class Ekstrakurikuler(models.Model):
-    siswa = models.ForeignKey('Siswa', on_delete=models.CASCADE)
+    siswa = models.ForeignKey(Siswa, on_delete=models.CASCADE)
     nama_ekskul = models.CharField(max_length=100, blank=True, null=True)
     keterangan = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -101,7 +102,7 @@ class Ekstrakurikuler(models.Model):
 
 
 class CatatanWalikelas(models.Model):
-    siswa = models.ForeignKey('Siswa', on_delete=models.CASCADE)
+    siswa = models.ForeignKey(Siswa, on_delete=models.CASCADE)
     catatan = models.CharField(max_length=100, blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

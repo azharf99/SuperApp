@@ -1,4 +1,5 @@
 from django.db import models
+from master.models import Siswa
 
 # Create your models here.
 jam_pelanggaran = (
@@ -17,7 +18,7 @@ jam_pelanggaran = (
 class Pelanggaran(models.Model):
     hari = models.DateField()
     jam_pelanggaran = models.CharField(max_length=50, choices=jam_pelanggaran)
-    pelanggar = models.ForeignKey('Siswa', on_delete=models.CASCADE)
+    pelanggar = models.ForeignKey(Siswa, on_delete=models.CASCADE)
     pelapor = models.CharField(max_length=50)
     pelanggaran = models.CharField(max_length=200)
     keterangan = models.CharField(max_length=100, blank=True, null=True)
@@ -25,4 +26,4 @@ class Pelanggaran(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return "{} | {} | {}".format(self.hari, self.jam_pelanggaran, self.pelanggar)
+        return f"{self.hari} | {self.jam_pelanggaran} | {self.pelanggaran}"
