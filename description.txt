@@ -1,0 +1,50 @@
+Fitur Aplikasi :
+
+Login Multi User
+Data Siswa
+Data Guru
+Data Pelajaran
+Data Walikelas
+Data Jurusan
+Data Laporan
+Data Penilaian
+Data Extrakurikuler
+Data Ketidakhadiran
+Laporan Nilai
+dan lainnya.
+
+
+
+Fitur Aplkasi
+Data Master
+Data Identitas Sekolah
+Data Kurikulum
+Data Tahun Akademik
+Data Gedung
+Data Ruangan
+Data Golongan
+Data Jenis PTK
+Data Jurusan
+Data Kelas
+Data Status Kepegawaian
+
+Data Penguuna
+Data Siswa
+Data Guru
+Data kepala Sekolah
+Data Walikelas
+Data Administrator
+
+Data Akademik
+Data Kelompok Mapel
+Data Mata Pelajaran
+Data Kompetensi Dasar
+Data Rentang Nilai
+
+Laporan Nilai Siswa
+Data Pelengkap
+Data Capaian Belajar
+Data Ekstrakulikuler
+Data Prestasi
+Data Nilai Raport
+Cetak Raport
